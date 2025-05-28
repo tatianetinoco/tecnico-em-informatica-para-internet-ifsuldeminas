@@ -18,12 +18,16 @@ if(isset($_POST["acao"])){
     $comando -> execute();
 
     if($comando -> rowCount()==1){
+        /*
         echo " Existe um usuário em nossa base de dados ";
         echo ($usuario." <br> ");
         echo ($senha. "<br>");
         echo ("Senha hash ".hash("sha256",$senha));
+        */
+        header("Location: dashboard/index_apagar.php");
     } else {
-        echo " Usuario não encontrado na base de dados";
+        // echo " Usuario não encontrado na base de dados";
+        header("Location: login.php");
     }
 
 } else {
