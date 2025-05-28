@@ -25,7 +25,7 @@ $comando->execute();
   <h2>Manutenção de Pessoas</h2>
   <div class="table-responsive">
 
-    <table class="table table-striped table-sm">
+    <table class="table table-striped table-sm" id = "minhaTabela">
       <thead>
         <tr>
           <th scope="col">ID</th>
