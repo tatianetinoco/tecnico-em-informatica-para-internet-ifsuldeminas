@@ -17,7 +17,7 @@ $comando -> execute();
 <body>
 
     <h1>Listar Registros da base de dados</h1>
-    <a href="cadastrar.php">Adicinar Novo Registro</a> <br>
+    <a href="cadastrar_apagar.php">Adicinar Novo Registro</a> <br>
     <table id = "minhaTabela">
         <thead>
             <th>#ID</th>
