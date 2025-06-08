@@ -8,6 +8,11 @@ $comando->execute();
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">Dashboard</h1>
+
+      <?php 
+        echo("Usuário logado>: ".strtoupper($_SESSION['nome']));
+      ?>
+
     <div class="btn-toolbar mb-2 mb-md-0">
       <div class="btn-group me-2">
         <button type="button" class="btn btn-sm btn-outline-secondary">PDF</button>
@@ -22,7 +27,13 @@ $comando->execute();
 
   <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
 
-  <h2>Manutenção de Pessoas</h2>
+  <div class="mb-4">
+    <h2>
+      Manutenção de Pessoas
+      <a href="cadastrar_apagar.php" class="btn btn-success">Cadastrar Pessoas</a>
+    </h2>
+  </div>
+
   <div class="table-responsive">
 
     <table class="table table-striped table-sm" id = "minhaTabela">
@@ -33,6 +44,8 @@ $comando->execute();
           <th scope="col">Nome</th>
           <th scope="col">Tipo Usuário</th>
           <th scope="col">Data Nasc</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Excluir</th>
         </tr>
       </thead>
       <tbody>
@@ -45,6 +58,8 @@ $comando->execute();
             <td><?php echo $pessoas["nome"]; ?></td>
             <td><?php echo $pessoas["tipo_user"]; ?></td>
             <td><?php echo (date('d/m/y', strtotime($pessoas["data_nasc"]))); ?></td>
+            <td> <a href="" class="btn btn-sm btn-primary">Editar</a> </td>
+            <td> <a href="" class="btn btn-sm btn-danger">Excluir</a> </td>
           </tr>
         <?php } ?>
       </tbody>

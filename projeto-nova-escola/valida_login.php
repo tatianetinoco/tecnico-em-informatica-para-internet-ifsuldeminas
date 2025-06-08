@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 if(isset($_POST["acao"])){
 
@@ -24,7 +25,12 @@ if(isset($_POST["acao"])){
         echo ($senha. "<br>");
         echo ("Senha hash ".hash("sha256",$senha));
         */
-        header("Location: dashboard/index_apagar.php");
+
+        $usuario = $comando -> fetch(PDO::FETCH_ASSOC);
+        $_SESSION['nome'] = $usuario['nome'];
+        // echo ($_SESSION['nome']);
+
+        header("Location: dashboard/index_dash.php");
     } else {
         // echo " Usuario não encontrado na base de dados";
         header("Location: login.php");
