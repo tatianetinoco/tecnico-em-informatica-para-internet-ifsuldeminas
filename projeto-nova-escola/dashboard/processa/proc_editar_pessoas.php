@@ -2,7 +2,8 @@
 // importar arquivo de conexão
 require("../../adm/conexao.php");
 
-// preparar e executar o BD a inserção do registro
+// preparar e executar o BD a edição do registro
+$id      = $_POST["id"];
 $nome      = $_POST["nome"];
 $cpf       = $_POST["cpf"];
 $senha     = $_POST["senha"];
@@ -12,8 +13,9 @@ $data_nasc = $_POST["data_nasc"];
 // criptografia
 $senha_hash = hash('sha256', $senha);
 
-$sql = "INSERT INTO pessoas (nome, cpf, senha, tipo_user, data_nasc, created, modified) VALUES (:nome, :cpf, :senha, :tipo_user, :data_nasc, NOW(), NOW())";
+$sql = "UPDATE pessoas SET nome=:nome, cpf=:cpf, senha=:senha, tipo_user=:tipo_user, data_nasc=:data_nasc, modified=NOW() WHERE id=:id";
 $comando = $pdo -> prepare($sql);
+$comando -> bindParam(":id", $id);
 $comando -> bindParam(":nome", $nome);
 $comando -> bindParam(":cpf", $cpf);
 $comando -> bindParam(":senha", $senha_hash);
