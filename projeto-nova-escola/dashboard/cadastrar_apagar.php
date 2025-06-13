@@ -4,10 +4,12 @@ include_once("view/lateral.php");
 ?>
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-itens-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Cadastrar Pessoas</h1>
+        <h1 class="h2 d-flex align-items-center">
+            <i class="bi bi-person me-2"></i> Cadastrar Pessoas
+        </h1>
     </div>        
     
-    <form method="POST" action="processa/proc_cadastrar_pessoas.php">
+    <form method="POST" action="processa/proc_cadastrar_pessoas.php" class="needs-validation">
             
             <div class="col-md-6">
                 <label for="nome" class="form-label">Nome:</label>
@@ -19,7 +21,7 @@ include_once("view/lateral.php");
            
             <div class="col-md-6 my-3">
                 <label for="cpf" class="form-label">CPF:</label>
-                <input type="text" name="cpf" class="form-control" placeholder="Digite seu CPF">
+                <input type="text" name="cpf" class="form-control" oninput="mascaraCPF(this)" placeholder="Digite seu CPF">
                  <div class="invalid-feedback">
                     Por favor, insira o CPF.
                 </div>
@@ -53,5 +55,19 @@ include_once("view/lateral.php");
         </form>
     </div>
 </main>
+
+ <!-- Máscara CPF -->
+ <script>
+     function mascaraCPF(i) {
+         var v = i.value;
+         if (isNaN(v[v.length - 1])) {
+             i.value = v.substring(0, v.length - 1);
+             return;
+         }
+         i.setAttribute("maxlength", "14");
+         if (v.length == 3 || v.length == 7) i.value += ".";
+         if (v.length == 11) i.value += "-";
+     }
+ </script>
 
 <?php include_once("view/rodape.php");
