@@ -4,20 +4,20 @@
       <div class="position-sticky pt-3 sidebar-sticky">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">
+            <a class="nav-link active" aria-current="page" href="./index_dash.php">
               <span data-feather="home" class="align-text-bottom"></span>
               Dashboard
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="professor_dash.php">
               <span data-feather="user" class="align-text-bottom"></span>
               Professores
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="discente_dash.php">
               <span data-feather="users" class="align-text-bottom"></span>
               Alunos
             </a>

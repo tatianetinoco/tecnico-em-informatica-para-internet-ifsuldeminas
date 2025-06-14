@@ -12,7 +12,8 @@ $data_nasc = $_POST["data_nasc"];
 // criptografia
 $senha_hash = hash('sha256', $senha);
 
-$sql = "INSERT INTO pessoas (nome, cpf, senha, tipo_user, data_nasc, created, modified) VALUES (:nome, :cpf, :senha, :tipo_user, :data_nasc, NOW(), NOW())";
+$sql = "INSERT INTO pessoas (nome, cpf, senha, tipo_user, data_nasc, created, modified, `status`) VALUES 
+                            (:nome, :cpf, :senha, :tipo_user, :data_nasc, NOW(), NOW(), 1)";
 $comando = $pdo -> prepare($sql);
 $comando -> bindParam(":nome", $nome);
 $comando -> bindParam(":cpf", $cpf);
