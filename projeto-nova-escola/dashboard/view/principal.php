@@ -56,7 +56,14 @@ $comando->execute();
             <td><?php echo $pessoas["id"]; ?></td>
             <td><?php echo $pessoas["cpf"]; ?></td>
             <td><?php echo $pessoas["nome"]; ?></td>
-            <td><?php echo $pessoas["tipo_user"]; ?></td>
+
+            <td><?php echo $pessoas["tipo_user"]; 
+            if ($pessoas["tipo_user"] == 1) {
+              echo " Professor";
+            } else{
+              echo " Discente";
+            }?></td>
+
             <td><?php echo (date('d/m/y', strtotime($pessoas["data_nasc"]))); ?></td>
             <td> <a href="editar_pessoas.php?id=<?php echo $pessoas["id"]; ?>" class="btn btn-sm btn-primary">Editar</a> </td>
             <td> <a href="processa/excluir_pessoas.php?id=<?php echo $pessoas["id"]; ?>" class="btn btn-sm btn-danger">Excluir</a> </td>
