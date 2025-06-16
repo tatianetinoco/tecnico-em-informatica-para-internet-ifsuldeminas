@@ -4,7 +4,7 @@ require("../../adm/conexao.php");
 
 // preparar e executar o BD a exclusão do registro
 $id = $_GET["id"];
-$sql = "DELETE FROM pessoas WHERE id = :id";
+$sql = "UPDATE pessoas SET status = 2 WHERE id = :id"; // Soft delete
 $comando = $pdo->prepare($sql);
 $comando->bindParam(":id", $id);
 $comando->execute();

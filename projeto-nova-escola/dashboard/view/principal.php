@@ -1,6 +1,6 @@
 <?php
 require_once "../adm/conexao.php";
-$sql = "SELECT * FROM pessoas";
+$sql = "SELECT * FROM pessoas WHERE status != 2";
 $comando = $pdo->prepare($sql);
 $comando->execute();
 ?>
@@ -63,30 +63,31 @@ $comando->execute();
                   echo " Professor";
                 } else {
                   echo " Discente";
-                } ?></td>
+                } ?>
+            </td>
 
             <td><?php echo (date('d/m/y', strtotime($pessoas["data_nasc"]))); ?></td>
+            
             <td> <a href="editar_pessoas.php?id=<?php echo $pessoas["id"]; ?>" class="btn btn-sm btn-primary">Editar</a> </td>
-            <td> <a href="processa/excluir_pessoas.php?id=<?php echo $pessoas["id"]; ?>" class="btn btn-sm btn-danger">Excluir</a> </td>
+
             <td>
-              <a href="processa\status_pessoas.php?id=<?php echo $pessoas['id']; ?> & status=<?php echo $pessoas['status']; ?>">
-                <?php
-                if ($pessoas['status'] == 1) {
-                ?>
-                  <p class="btn btn-sm btn-success">
-                    <?php echo " Ativo"; ?>
-                  </p>
-                <?php
-                } else {
-                ?>
-                  <p class="btn btn-sm btn-secondary">
-                    <?php echo " Inativo"; ?>
-                  </p>
-                <?php
-                };
-                ?>
-              </a>
+              <?php if ($pessoas["status"] != 2): ?>
+                <a href="processa/excluir_pessoas.php?id=<?php echo $pessoas['id']; ?>" class="btn btn-sm btn-danger">Excluir</a>
+              <?php endif; ?>
             </td>
+
+            <td>
+              <?php if ($pessoas["status"] == 1): ?>
+                <a href="processa/status_pessoas.php?id=<?php echo $pessoas['id']; ?>&status=1">
+                  <p class="btn btn-sm btn-success mb-0">Ativo</p>
+                </a>
+              <?php elseif ($pessoas["status"] == 0): ?>
+                <a href="processa/status_pessoas.php?id=<?php echo $pessoas['id']; ?>&status=0">
+                  <p class="btn btn-sm btn-secondary mb-0">Inativo</p>
+                </a>
+              <?php endif; ?>
+            </td>
+
           </tr>
         <?php } ?>
       </tbody>
