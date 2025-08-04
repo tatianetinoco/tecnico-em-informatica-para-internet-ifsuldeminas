@@ -105,6 +105,23 @@ O mini-mundo é uma representação simplificada do mundo real que o banco de da
   
 ---
 
+## Atributos e Chaves
+
+- **Atributo**: Característica que descreve uma entidade (ex.: nome, idade, salário).
+
+- **Atributo Chave**: Identifica de forma única uma entidade dentro de um conjunto.
+
+    - **Chave Candidata**: Qualquer atributo (ou combinação) capaz de ser uma chave.
+
+    - **Chave Primária**: Chave candidata escolhida como identificador principal.
+
+- Exemplo (Tabela Aluno):
+
+    - Atributo: Num_Matricula (chave primária).
+    - Cada linha (registro ou tupla) é única.
+
+---
+
 ## Relacionamentos
 
 - Representam associações entre duas ou mais entidades.
@@ -205,9 +222,8 @@ Relacionamentos:
 
 ## Conclusão
 
-O Modelo Entidade-Relacionamento é:
+O **Modelo Entidade-Relacionamento (ER)** é essencial para a modelagem conceitual de bancos de dados, pois permite representar de forma clara e visual as entidades, atributos e relacionamentos do mundo real, de maneira independente do SGBD.
 
-- Um padrão poderoso para modelagem conceitual de bancos de dados.
-- Visual e intuitivo, representando entidades, atributos e relacionamentos de forma clara.
-- Independente do SGBD, servindo como base para o modelo lógico e físico.
-- Essencial para alinhar requisitos do negócio com a implementação técnica.
+A **modelagem lógica** complementa esse processo ao detalhar chaves, cardinalidades e restrições, preparando a estrutura para ser implementada em um banco relacional.
+
+Juntas, essas etapas garantem que o sistema seja bem planejado, atenda aos requisitos do negócio e ofereça consistência, segurança e eficiência no armazenamento e acesso aos dados.
